@@ -1,0 +1,55 @@
+﻿@model Message
+
+<div class="col-lg-8">
+    <form id="messageForm" action="/SendMessage/Index" method="post" data-aos="fade-up" data-aos-delay="200">
+        <div class="row gy-4">
+            <div class="col-md-6">
+                <input type="text" asp-for="NameSurname" class="form-control" placeholder="Adınız Soyadınız" required="" />
+            </div>
+
+            <div class="col-md-6">
+                <input type="email" class="form-control" asp-for="Email" placeholder="Mail Adresiniz" required="" />
+            </div>
+
+            <div class="col-md-12">
+                <input type="text" class="form-control" asp-for="Subject" placeholder="Konu" required="" />
+            </div>
+
+            <div class="col-md-12">
+                <textarea class="form-control" asp-for="MessageDetail" rows="6" placeholder="Mesajınız" required=""></textarea>
+            </div>
+
+            <div class="col-md-12 text-center">
+                <button type="submit" class="btn btn-outline-primary">Mesaj Gönder</button>
+            </div>
+        </div>
+    </form>
+</div><!-- End Contact Form -->
+@if (ViewBag.Success != null)
+{
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: '@ViewBag.Success',
+            showConfirmButton: true
+        }).then(function() {
+            // Formu saf JavaScript ile sıfırlıyoruz
+            setTimeout(function() {
+                document.getElementById("messageForm").reset(); // Formu sıfırlıyoruz
+            }, 2000);  // 2 saniye sonra sıfırlama yapılır
+        });
+    </script>
+}
+
+@if (ViewBag.Error != null)
+{
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: '@ViewBag.Error',
+            showConfirmButton: true
+        });
+    </script>
+}

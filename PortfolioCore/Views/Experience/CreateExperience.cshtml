@@ -1,0 +1,37 @@
+﻿@model Experience
+
+@{
+    ViewData["Title"] = "CreateExperience";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h1>Deneyim Ekle</h1>
+
+<form asp-action="CreateExperience" method="post">
+    <div class="form-group">
+        <label asp-for="Title" class="control-label">Çalışılan Pozisyon</label>
+        <input asp-for="Title" class="form-control" style="border:1px solid black"/>
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="SubTitle" class="control-label">Firma Adı</label>
+        <input asp-for="SubTitle" class="form-control" style="border:1px solid black" />
+        <span asp-validation-for="SubTitle" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Description" class="control-label">Açıklama</label>
+        <textarea asp-for="Description" class="form-control" style="border:1px solid black"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ExperienceDate" class="control-label">Tarih Aralığı</label>
+        <input asp-for="ExperienceDate" class="form-control" style="border:1px solid black" />
+        <span asp-validation-for="ExperienceDate" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Kaydet</button>
+    <a asp-action="ExperienceList" class="btn btn-secondary">İptal</a>
+</form>

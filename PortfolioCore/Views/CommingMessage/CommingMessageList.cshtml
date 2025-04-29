@@ -1,0 +1,52 @@
+﻿@model List<Message>
+@{
+    ViewData["Title"] = "CommingMessageList";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+
+<h2>Gelen Mesajlar</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Ad Soyad</th>
+            <th>Email</th>
+            <th>Konu</th>
+            <th>Mesaj</th>
+            <th>Tarih</th>
+            <th>Durum</th>
+            <th>İşlem</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var message in Model)
+        {
+            count++;
+            <tr>
+                <td>@count</td>
+                <td>@message.NameSurname</td>
+                <td>@message.Email</td>
+                <td>@message.Subject</td>
+                <td>@message.MessageDetail</td>
+                <td>@message.SendDate</td>
+                <td>@(message.IsRead ? "Okundu" : "Okunmadı")</td>
+                <td>
+                    <form method="post" action="@Url.Action("MarkAsRead", "CommingMessage")">
+                        <input type="hidden" name="messageId" value="@message.MessageId" />
+                        @if (message.IsRead)
+                        {
+                            <button type="submit" class="btn btn-warning" name="IsRead" value="false">Okunmadı Yap</button>
+                        }
+                        else
+                        {
+                            <button type="submit" class="btn btn-success" name="IsRead" value="true">Okundu Yap</button>
+                        }
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

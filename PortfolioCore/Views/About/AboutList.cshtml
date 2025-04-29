@@ -1,0 +1,59 @@
+﻿@model List<About>
+@{
+    ViewData["Title"] = "AboutList";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+
+<h2>Hakkımda Listesi</h2>
+
+<a href="/About/CreateAbout/" class="btn btn-primary mb-3">+ Yeni Hakkımda Ekle</a>
+
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>#</th>
+            <th>Açıklama</th>
+            <th>Pozisyon</th>
+            <th>Pozisyon Açıklaması</th>
+            <th>Doğum Tarihi</th>
+            <th>Yaş</th>
+            <th>Website</th>
+            <th>Derece</th>
+            <th>Telefon</th>
+            <th>Email</th>
+            <th>Şehir</th>
+            <th>Freelance</th>
+            <th>Alt Açıklama</th>
+            <th>Güncelle</th>
+            <th>Sil</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            count++;
+            <tr>
+                <td>@count</td>
+                <td>@item.Description</td>
+                <td>@item.Position</td>
+                <td>@item.PositionDescription</td>
+                <td>@item.Birthday</td>
+                <td>@item.Age</td>
+                <td>@item.Website</td>
+                <td>@item.Degree</td>
+                <td>@item.Phone</td>
+                <td>@item.Email</td>
+                <td>@item.City</td>
+                <td>@item.Freelance</td>
+                <td>@item.SubDescription</td>
+                <td>
+                    <a href="/About/UpdateAbout/@item.AboutId" class="btn btn-sm btn-warning">Güncelle</a>
+                </td>
+                <td>
+                    <a href="/About/DeleteAbout/@item.AboutId" class="btn btn-sm btn-danger" onclick="return confirm('Bu hakkımda bilgisini silmek istediğinizden emin misiniz?');">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,60 @@
+﻿@model Portfolio
+@{
+    ViewData["Title"] = "CreatePortfolio";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h1>Yeni Proje Ekle</h1>
+
+<!-- Yeni Portföy Oluşturma Formu Başlangıcı -->
+<form method="post" action="/Portfolio/CreatePortfolio">
+    <div class="form-group">
+        <label for="Title">Portföy Adı</label>
+        <input type="text" class="form-control" id="Title" name="Title" placeholder="Portföy Adı" required style="border:1px solid black">
+    </div>
+
+    <div class="form-group">
+        <label for="Description">Açıklama</label>
+        <textarea class="form-control" id="Description" name="Description" rows="3" placeholder="Portföy Açıklaması" required style="border:1px solid black"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="CategoryId">Kategori</label>
+        <select class="form-control" asp-for="CategoryId" asp-items="ViewBag.v" name="CategoryId" required style="border:1px solid black">
+            <option value="">-- Seçiniz --</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="Client">Müşteri</label>
+        <input type="text" class="form-control" id="Client" name="Client" placeholder="Müşteri Adı" required style="border:1px solid black">
+    </div>
+
+    <!-- Yeni Alanlar -->
+    <div class="form-group">
+        <label for="ProjectName">Proje Adı</label>
+        <input type="text" class="form-control" id="ProjectName" name="ProjectName" placeholder="Proje Adı" required style="border:1px solid black">
+    </div>
+
+    <div class="form-group">
+        <label for="DetailDescription">Detaylı Açıklama</label>
+        <textarea class="form-control" id="DetailDescription" name="DetailDescription" rows="5" placeholder="Detaylı Açıklama" required style="border:1px solid black"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="ProjectDate">Proje Tarihi</label>
+        <input type="date" class="form-control" id="ProjectDate" name="ProjectDate" required style="border:1px solid black">
+    </div>
+
+    <div class="form-group">
+        <label for="ProjectUrl">Proje URL'si</label>
+        <input type="url" class="form-control" id="ProjectUrl" name="ProjectUrl" placeholder="Proje URL'si" required style="border:1px solid black">
+    </div>
+
+    <div class="form-group">
+        <label for="ImageUrl">Proje Resmi URL'si</label>
+        <input type="text" class="form-control" id="ImageUrl" name="ImageUrl" placeholder="Proje Resmi URL'si" required style="border:1px solid black">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Kaydet</button>
+</form>

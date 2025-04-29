@@ -1,0 +1,36 @@
+﻿@model Testimonial
+@{
+    ViewData["Title"] = "CreateTestimonial";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h2>Yeni Referans Ekle</h2>
+
+<form asp-action="CreateTestimonial" method="post">
+    <div class="form-group">
+        <label asp-for="NameSurname" class="control-label">Ad Soyad</label>
+        <input asp-for="NameSurname" class="form-control" style="border:1px solid black" />
+        <span asp-validation-for="NameSurname" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Title" class="control-label">Ünvan</label>
+        <input asp-for="Title" class="form-control" style="border:1px solid black" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="CommentDetail" class="control-label">Yorum</label>
+        <textarea asp-for="CommentDetail" class="form-control" style="border:1px solid black"></textarea>
+        <span asp-validation-for="CommentDetail" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ImageUrl" class="control-label">Görsel Linki</label>
+        <input asp-for="ImageUrl" class="form-control" style="border:1px solid black" />
+        <span asp-validation-for="ImageUrl" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Kaydet</button>
+    <a asp-action="TestimonialList" class="btn btn-secondary">İptal</a>
+</form>

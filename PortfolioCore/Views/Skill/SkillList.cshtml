@@ -1,0 +1,41 @@
+﻿@model List<Skill>
+@{
+    ViewData["Title"] = "SkillList";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+
+<h2>Yetenek Listesi</h2>
+
+<a href="/Skill/CreateSkill/" class="btn btn-primary mb-3">+ Yeni Yetenek Ekle</a>
+
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>#</th>
+            <th>Yetenek Adı</th>
+            <th>Yetenek Oranı</th>
+            <th>Güncelle</th>
+            <th>Sil</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            count++;
+            <tr>
+                <td>@count</td>
+                <td>@item.SkillName</td>
+                <td>@item.SkillValue</td>
+                <td>
+                    <a href="/Skill/UpdateSkill/@item.SkillId" class="btn btn-sm btn-warning">Güncelle</a>
+                </td>
+                <td>
+                    <a href="/Skill/DeleteSkill/@item.SkillId" class="btn btn-sm btn-danger" onclick="return confirm('Bu deneyimi silmek istediğinizden emin misiniz?');">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

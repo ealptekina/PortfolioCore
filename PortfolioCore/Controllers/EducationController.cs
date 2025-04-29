@@ -1,0 +1,52 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using PortfolioCore.Context;
+using PortfolioCore.Entities;
+
+namespace PortfolioCore.Controllers
+{
+    public class EducationController : Controller
+    {
+        PortfolioContext context = new PortfolioContext();
+        public IActionResult EducationList()
+        {
+            var values = context.Educations.ToList();
+            return View(values);
+        }
+
+        [HttpGet]
+        public IActionResult CreateEducation()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult CreateEducation(Education ex)
+        {
+            context.Educations.Add(ex);
+            context.SaveChanges();
+            return RedirectToAction("EducationList");
+        }
+
+        [HttpGet]
+        public IActionResult UpdateEducation(int id)
+        {
+            var values = context.Educations.Find(id);
+            return View(values);
+        }
+
+        [HttpPost]
+        public IActionResult UpdateEducation(Education ex)
+        {
+            context.Educations.Update(ex);
+            context.SaveChanges();
+            return RedirectToAction("EducationList");
+        }
+
+        public IActionResult DeleteEducation(int id)
+        {
+            var value = context.Educations.Find(id);
+            context.Educations.Remove(value);
+            context.SaveChanges();
+            return RedirectToAction("EducationList");
+        }
+    }
+}

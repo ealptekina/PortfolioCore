@@ -1,0 +1,85 @@
+﻿@model About
+
+@{
+    ViewData["Title"] = "CreateAbout";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h1>Hakkımda Ekle</h1>
+
+<form asp-action="CreateAbout" method="post">
+    <div class="form-group">
+        <label asp-for="Description" class="control-label">Açıklama</label>
+        <textarea asp-for="Description" class="form-control" style="border:1px solid black"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Position" class="control-label">Pozisyon</label>
+        <input asp-for="Position" class="form-control" style="border:1px solid black" />
+        <span asp-validation-for="Position" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PositionDescription" class="control-label">Pozisyon Açıklaması</label>
+        <textarea asp-for="PositionDescription" class="form-control" style="border:1px solid black"></textarea>
+        <span asp-validation-for="PositionDescription" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Birthday" class="control-label">Doğum Tarihi</label>
+        <input asp-for="Birthday" type="date" class="form-control" style="border:1px solid black" />
+        <span asp-validation-for="Birthday" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Age" class="control-label">Yaş</label>
+        <input asp-for="Age" type="number" class="form-control" style="border:1px solid black" />
+        <span asp-validation-for="Age" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Website" class="control-label">Web Sitesi</label>
+        <input asp-for="Website" class="form-control" style="border:1px solid black" />
+        <span asp-validation-for="Website" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Degree" class="control-label">Derece</label>
+        <input asp-for="Degree" class="form-control" style="border:1px solid black" />
+        <span asp-validation-for="Degree" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Phone" class="control-label">Telefon</label>
+        <input asp-for="Phone" class="form-control" style="border:1px solid black" />
+        <span asp-validation-for="Phone" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Email" class="control-label">E-Posta</label>
+        <input asp-for="Email" type="email" class="form-control" style="border:1px solid black" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="City" class="control-label">Şehir</label>
+        <input asp-for="City" class="form-control" style="border:1px solid black" />
+        <span asp-validation-for="City" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Freelance" class="control-label">Freelance Durumu</label>
+        <input asp-for="Freelance" class="form-control" style="border:1px solid black" />
+        <span asp-validation-for="Freelance" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="SubDescription" class="control-label">Alt Açıklama</label>
+        <textarea asp-for="SubDescription" class="form-control" style="border:1px solid black"></textarea>
+        <span asp-validation-for="SubDescription" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Kaydet</button>
+    <a asp-action="AboutList" class="btn btn-secondary">İptal</a>
+</form>

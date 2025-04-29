@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "İstatistikler";
+    Layout = "~/Views/AdminLayout/Index.cshtml"; // Sayfa admin layout’u kullanıyor
+}
+
+<div class="alert" style="background-color: #B3E5FC; color: black;">Toplam Proje Sayısı: @ViewBag.v9</div> <!-- Soft Mavi -->
+<div class="alert" style="background-color: #C8E6C9; color: black;">Toplam Yetenek Sayısı: @ViewBag.v1</div> <!-- Soft Yeşil -->
+<div class="alert" style="background-color: #FFEBEE; color: black;">Toplam Yetenek Puanı: @ViewBag.v2</div> <!-- Soft Pembe -->
+<div class="alert" style="background-color: #FFF9C4; color: black;">Değeri 70 ve Üzeri Yetenek Sayısı: @ViewBag.v3</div> <!-- Soft Sarı -->
+<div class="alert" style="background-color: #FFE0B2; color: black;">Yeteneklerin Ortalama Puanı: @ViewBag.v4</div> <!-- Soft Turuncu -->
+<div class="alert" style="background-color: #D1C4E9; color: black;">Toplam Deneyim Sayısı: @ViewBag.v5</div> <!-- Soft Mor -->
+<div class="alert" style="background-color: #F1F8E9; color: black;">Developer Deneyim Sayısı: @ViewBag.v6</div> <!-- Soft Yeşil Sarı -->
+<div class="alert" style="background-color: #FFECB3; color: black;">En Yüksek Puanlı Yetenek: @ViewBag.v7</div> <!-- Soft Sarı -->
+<div class="alert" style="background-color: #FFCCBC; color: black;">En Düşük Puanlı Yetenek: @ViewBag.v8</div> <!-- Soft Turuncu -->
+<div class="alert" style="background-color: #B2EBF2; color: black;">Son Eklenen Yetenek: @ViewBag.v10</div> <!-- Soft Mavi -->

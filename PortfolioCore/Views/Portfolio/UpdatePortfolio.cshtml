@@ -1,0 +1,64 @@
+﻿@model Portfolio
+@{
+    ViewData["Title"] = "UpdatePortfolio";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h1>Proje Güncelle</h1>
+
+<!-- Portföy Güncelleme Formu Başlangıcı -->
+<form method="post" action="/Portfolio/UpdatePortfolio">
+    <!-- Portföy Id'sini gizli bir alanda gönderiyoruz -->
+    <input type="hidden" id="PortfolioId" name="PortfolioId" value="@Model.PortfolioId" />
+
+    <div class="form-group">
+        <label for="Title">Portföy Adı</label>
+        <input type="text" class="form-control" id="Title" name="Title" value="@Model.Title" placeholder="Portföy Adı" required>
+    </div>
+
+    <div class="form-group">
+        <label for="Description">Açıklama</label>
+        <textarea class="form-control" id="Description" name="Description" rows="3" placeholder="Portföy Açıklaması" required>@Model.Description</textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="CategoryId">Kategori</label>
+        <select class="form-control" asp-for="CategoryId" asp-items="ViewBag.v" name="CategoryId" required>
+            <option value="">-- Seçiniz --</option>
+            <!-- Mevcut kategori seçimini ViewBag üzerinden yapıyoruz -->
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="Client">Müşteri</label>
+        <input type="text" class="form-control" id="Client" name="Client" value="@Model.Client" placeholder="Müşteri Adı" required>
+    </div>
+
+    <!-- Yeni Alanlar -->
+    <div class="form-group">
+        <label for="ProjectName">Proje Adı</label>
+        <input type="text" class="form-control" id="ProjectName" name="ProjectName" value="@Model.ProjectName" placeholder="Proje Adı" required>
+    </div>
+
+    <div class="form-group">
+        <label for="DetailDescription">Detaylı Açıklama</label>
+        <textarea class="form-control" id="DetailDescription" name="DetailDescription" rows="5" placeholder="Detaylı Açıklama" required>@Model.DetailDescription</textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="ProjectDate">Proje Tarihi</label>
+        <input type="date" class="form-control" id="ProjectDate" name="ProjectDate" value="@Model.ProjectDate" required>
+    </div>
+
+    <div class="form-group">
+        <label for="ProjectUrl">Proje URL'si</label>
+        <input type="url" class="form-control" id="ProjectUrl" name="ProjectUrl" value="@Model.ProjectUrl" placeholder="Proje URL'si" required>
+    </div>
+
+    <div class="form-group">
+        <label for="ImageUrl">Proje Resmi URL'si</label>
+        <input type="text" class="form-control" id="ImageUrl" name="ImageUrl" value="@Model.ImageUrl" placeholder="Proje Resmi URL'si" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Güncelle</button>
+</form>

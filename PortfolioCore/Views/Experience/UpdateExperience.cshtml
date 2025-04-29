@@ -1,0 +1,39 @@
+﻿@model Experience
+
+@{
+    ViewData["Title"] = "UpdateExperience";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h1>Deneyim Güncelle</h1>
+
+
+<form asp-action="UpdateExperience" method="post">
+    <input type="hidden" asp-for="ExperienceId" />
+    <div class="form-group">
+        <label asp-for="Title" class="control-label">Çalışılan Pozisyon</label>
+        <input asp-for="Title" class="form-control" style="border:1px solid black" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="SubTitle" class="control-label">Firma Adı</label>
+        <input asp-for="SubTitle" class="form-control" style="border:1px solid black" />
+        <span asp-validation-for="SubTitle" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Description" class="control-label">Açıklama</label>
+        <input asp-for="Description" class="form-control" style="border:1px solid black" />
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ExperienceDate" class="control-label">Tarih Aralığı</label>
+        <input asp-for="ExperienceDate" class="form-control" style="border:1px solid black" />
+        <span asp-validation-for="ExperienceDate" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-success">Kaydet</button>
+</form>
+

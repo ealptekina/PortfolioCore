@@ -1,0 +1,44 @@
+﻿@model List<Education>
+@{
+    ViewData["Title"] = "EducationList";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+
+<h2>Eğitim Listesi</h2>
+
+<a href="/Education/CreateEducation/" class="btn btn-primary mb-3">+ Yeni Eğitim Ekle</a>
+
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>#</th>
+            <th>Başlık</th>
+            <th>Alt Başlık</th>
+            <th>Açıklama</th>
+            <th>Tarih</th>
+            <th>Güncelle</th>
+            <th>Sil</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            count++;
+            <tr>
+                <td>@count</td>
+                <td>@item.Title</td>
+                <td>@item.SubTitle</td>
+                <td>@item.Description</td>
+                <td>@item.DateInfo</td>
+                <td>
+                    <a href="/Education/UpdateEducation/@item.EducationId" class="btn btn-sm btn-warning">Güncelle</a>
+                </td>
+                <td>
+                    <a href="/Education/DeleteEducation/@item.EducationId" class="btn btn-sm btn-danger" onclick="return confirm('Bu eğitimi silmek istediğinizden emin misiniz?');">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
