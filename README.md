@@ -138,6 +138,11 @@ Aynı zamanda Entity Framework Core, ViewComponent ve ASP.NET Core'un sunduğu �
 
 ![image](https://github.com/user-attachments/assets/386dad57-07f1-481d-aa9b-e645e49ed55d)
 
+🔹 404 Sayfası:
+
+![image](https://github.com/user-attachments/assets/37d98af5-526e-4eb2-8f5d-3e3104871862)
+
+
 🔹 Veritabanı:
 
 ![image](https://github.com/user-attachments/assets/76a4ffbf-ae61-414b-99f7-e4d808b6d4b5)
